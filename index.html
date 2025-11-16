@@ -1,0 +1,363 @@
+<!--
+Página informativa sobre conceptos básicos de ciberseguridad.
+Dirigida a usuarios principiantes que buscan una introducción clara y sencilla.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M1.Ciberseguridad</title>
+    <style>
+         /* 
+            Estilos globales: se establece el box model, tipografía y comportamiento base
+            para garantizar consistencia visual en todos los navegadores.
+        */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        /* 
+            ======== ENCABEZADO Y NAVEGACIÓN ========
+            Diseño del header y menú principal.
+        */
+        header{
+            background-color: #1b1f61;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav{
+            background-color: #2e349e;
+            padding: 0.5rem;
+        }
+        nav ul{
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        nav li{
+            margin: 0 1rem;
+        }
+        nav a{
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover, nav a:focus{
+            background-color: #1b1f61;
+            outline: 2px solid white;
+        }
+        /* 
+            ======== CONTENEDOR PRINCIPAL ========
+            Diseño del área central usando CSS Grid para crear layout de dos columnas.
+        */
+        main{
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 2rem;
+        }
+        section{
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        aside{
+            background-color: #C8CAEF;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        h1,h2,h3{
+            color: #2e349e;
+            margin-bottom: 1rem;
+        }
+        h1{
+            font-size: 2.5rem;
+        }
+        h2{
+            font-size: 1.8rem;
+            border-bottom: 2px solid #25297E;
+            padding-bottom: 0.5rem;
+        }
+        p{
+            margin-bottom: 1rem;
+        }
+        img{
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        ul,ol{
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .plant-card{
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            background-color: #f5f9f5;
+        }
+        footer{
+            background-color: #2e349e;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        .contact-form{
+            display: grid;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .form-group{
+            display: flex;
+            flex-direction: column;
+        }
+        label{
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        input,textarea,select{
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button{
+            background-color: #25297E;
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        button:hover, button:focus{
+            background-color: #2e349e;
+            outline: 2px solid #25297E;
+        }
+        /* 
+            ======== SKIP LINK (ACCESIBILIDAD) ========
+            Elemento invisible que aparece al usar Tab para permitir saltar al contenido.
+        */
+        .skip-link{
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2e349e;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            text-decoration: none;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        /* 
+            ======== RESPONSIVE DESIGN ========
+            Ajustes para móviles y pantallas pequeñas (<768px).
+        */
+        @media (max-width: 768px) {
+            main {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.5rem 0;
+            }
+        }
+        /* 
+            === PROPIEDADES CSS3 MÁS RELEVANTES ===
+            lo mas relevante del codigo css3
+
+            display: flex; 
+            → Crea contenedores flexibles para organizar elementos fácilmente.
+
+            flex-direction;
+            → Define si los elementos se ordenan en fila o columna.
+
+            justify-content;
+            → Alinea elementos dentro de un contenedor flex.
+
+            display: grid;
+            → Permite crear layouts en columnas y filas.
+
+            grid-template-columns;
+            → Define cuántas columnas tiene el grid y su tamaño.
+
+            gap;
+            → Espacio uniforme entre columnas o filas.
+
+            transition;
+            → Agrega animaciones suaves en hover/focus.
+
+            outline;
+            → Indica qué elemento está enfocado (accesibilidad).
+
+            box-shadow;
+            → Añade sombras para dar profundidad visual.
+
+            border-radius;
+            → Redondea esquinas para un estilo más suave.
+
+            @media;
+            → Permite adaptar el diseño a pantallas móviles.
+        */
+
+
+    </style>
+</head>
+<body>
+    <!-- Enlace de accesibilidad para permitir saltar directamente al contenido principal -->
+    <a href="#main-content" class="skip-link">Saltar al contenido</a>
+    <header>
+        <!-- Título principal de la página. Representa el propósito general del sitio -->
+        <h1>Ciberseguridad</h1>
+        <p>Conocimientos basicos de Ciberseguridad</p>
+    </header>
+    <!-- 
+        Navegación principal del sitio. 
+        Se usa <nav> por semántica y accesibilidad, permitiendo a lectores de pantalla
+        identificar zonas del sitio.
+    -->
+    <nav aria-label="Navegacion principal">
+        <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#puntos-claves">Puntos Claves</a></li>
+            <li><a href="#consejos">Consejos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+    <!-- 
+        Contenedor principal del sitio.
+        El atributo id facilita navegación accesible (skip-link).
+    -->
+    <main id="main-content">
+        <div class="content">
+            <section id="inicio">
+                <h2>La ciberseguridad y el mundo</h2>
+                <img src="/m1_web/analista-ciberseguridad-800x450.width-640.jpg" alt="ciberseguridad">
+                <p>La ciberseguridad es la práctica de proteger sistemas, redes y datos frente a ataques digitales, y colabora en el mundo al garantizar la estabilidad económica, la seguridad nacional y la protección de la privacidad individual en nuestra sociedad digitalmente dependiente.</p>
+                <p>Un solo punto débil (un equipo sin parches, un usuario descuidado) puede comprometer toda la red de una organización.</p>
+            </section>
+            <section id="puntos-claves">
+                <h2>Tener en cuenta</h2>
+                <div>
+                    <h3>Las Copias de Seguridad son tu Plan de Rescate</h3>
+                    <p><strong>¿Por qué?:</strong>Ante un ransomware, un fallo de hardware o un error catastrófico, las backups son tu única salida.</p>
+                </div>
+                <div>
+                    <h3>La Autenticación Multifactor (MFA) es No Negociable</h3>
+                    <p><strong>¿Por qué?:</strong>Una contraseña, por muy fuerte que sea, se puede robar, filtrar o adivinar. El MFA bloquea más del 99% de los ataques automatizados.</p>
+                </div>
+                <div>
+                    <h3>Ten un Plan de Respuesta a Incidentes</h3>
+                    <p><strong>¿Por qué?:</strong>Como dicen, "no es si te van a atacar, sino cuándo". Reaccionar con pánico empeora todo.</p>
+                </div>
+            </section>
+            <section id="consejos">
+                <h2>Consejos básicos para el éxito</h2>
+                <h3>Habilidades Técnicas Fundamentales (La Base)</h3>
+                <p>Domina el Networking: Entender TCP/IP, subredes, DNS, HTTP/S y el flujo normal del tráfico de red es no negociable. Si no sabes cómo funciona lo normal, nunca podrás identificar lo anormal.
+                Herramienta clave: Wireshark. Aprende a leer capturas de paquetes como si fuera un libro.
+                Aprende los Sistemas Operativos a Fondo</p>
+
+                <h3>Procesos Clave para Implementar</h3>
+                <p>Hardening de Sistemas: Endurece los sistemas. Elimina servicios innecesarios, aplica los principios de mínimo privilegio y sigue guías de hardening como las del CIS (Center for Internet Security).</p>
+
+                <h3>Plan de Acción Concreto para Empezar</h3>
+                <p>Certificaciones Enfocadas: Mira certificaciones como:</p>
+                <ol>
+                    <li>CompTIA CySA+ (Cybersecurity Analyst+): Excelente punto de partida.</li>
+                    <li>GIAC GCDA (GIAC Certified Detection Analyst): Muy respetada y práctica.</li>
+                    <li>BTL1 (Blue Team Level 1) de Security Blue Team: Específica y muy hands-on.</li>
+                </ol>
+                <img src="/m1_web/ciber.jpg" alt="seguridad">
+            </section>
+            <section id="contacto">
+                <!-- 
+                    SECTION 4: Formulario de contacto.
+                    Todas las etiquetas <label> están asociadas a sus inputs para accesibilidad.
+                    aria-labelledby mejora la relación entre título y formulario.
+                -->
+                <h2>¿Tienes preguntas?</h2>
+                <p>Si necesitas ayuda con tu punto de partida o tienes alguna pregunta, no dudes en contactarnos:</p>
+                
+                <form class="contact-form" aria-labelledby="form-title">
+                    <div class="form-group">
+                        <label for="nombre">Nombre completo:</label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Correo electrónico:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="tipo-consulta">Tipo de consulta:</label>
+                        <select id="tipo-consulta" name="tipo-consulta">
+                            <option value="general">Consulta general</option>
+                            <option value="problemas">Problemas con el enfoque</option>
+                            <option value="recomendaciones">Recomendaciones de paginas web</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    
+                    <button type="submit">Enviar mensaje</button>
+                </form>
+            </section>
+
+        </div>
+        <aside>
+            <h2>Recursos adicionales</h2>
+            <!-- 
+                    Los enlaces incluyen aria-label para mayor claridad a usuarios con lectores 
+                    de pantalla, evitando ambigüedades.
+                -->
+            <ul>
+                <li><a href="https://www.netacad.com/es/cybersecurity" aria-label="Cisco">Pagina de Cisco</a></li>
+                <li><a href="https://www.ibm.com/es-es/think/topics/cybersecurity" aria-label="IBM">Contenido de IBM</a></li>
+            </ul>
+        </aside>
+
+    </main>
+    <!-- Pie de página con derechos y redes sociales -->
+    <footer>
+        <p>&copy; 2025 Conocimientos es el poder. Seguridad es de todos</p>
+        <p>Síguenos en redes sociales: 
+            <a href="#" aria-label="Síguenos en Facebook">Facebook</a> | 
+            <a href="#" aria-label="Síguenos en Instagram">Instagram</a> | 
+            <a href="#" aria-label="Síguenos en Twitter">Twitter</a>
+        </p>
+    </footer>
+</body>
+</html>
