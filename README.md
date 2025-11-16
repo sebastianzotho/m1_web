@@ -121,6 +121,8 @@ Si deseas mejorar este proyecto:
 4. Abre un Pull Request
 
 ---
+<img width="2120" height="973" alt="image" src="https://github.com/user-attachments/assets/167073ca-fe9d-432d-b474-33871130f8b2" />
+
 
 
 ## 📌 9. Licencia
